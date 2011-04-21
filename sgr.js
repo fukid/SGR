@@ -1045,9 +1045,14 @@
       }
 
     }
-
-    $.sgr.injectEntryTabs(entry);
-  }
+      if (1)) {
+		//console.log(entry.find('.item-body').text().length);
+		//console.log(entry.find('.item-body img').size());
+		if (entry.find('a:last:contains(全文)').size()==1 || entry.find('a:last:contains(Continue reading)').size()==1 || entry.find('a:last:contains(Read more)').size()==1 || (entry.find('.item-body').find('img').size()==0 && entry.find('.item-body').text().length<=1000)){
+			$.sgr.showReadableEntry(entry);
+		}
+		$.sgr.injectEntryTabs(entry);
+	}
 
   // Convert all entries to readable view
   //
@@ -1747,5 +1752,4 @@
   }
 
 })(jQuery);
-
 
